@@ -9,10 +9,6 @@ public class Shuffler {
 	 */
 	private static final int SHUFFLE_COUNT = 1;
 
-	/**
-	 * The number of values to shuffle.
-	 */
-	private static final int VALUE_COUNT = 4;
 
 	/**
 	 * Tests shuffling methods.
@@ -21,10 +17,7 @@ public class Shuffler {
 	public static void main(String[] args) {
 		System.out.println("Results of " + SHUFFLE_COUNT +
 								 " consecutive perfect shuffles:");
-		int[] values1 = new int[VALUE_COUNT];
-		for (int i = 0; i < values1.length; i++) {
-			values1[i] = i;
-			}
+		int[] values1 = {0, 1, 2, 3};
 		for (int j = 1; j <= SHUFFLE_COUNT; j++) {
 			perfectShuffle(values1);
 			System.out.print("  " + j + ":");
@@ -37,10 +30,7 @@ public class Shuffler {
 
 		System.out.println("Results of " + SHUFFLE_COUNT +
 								 " consecutive efficient selection shuffles:");
-		int[] values2 = new int[VALUE_COUNT];
-		for (int i = 0; i < values2.length; i++) {
-			values2[i] = i;
-			}
+		int[] values2 = {0, 1, 2, 3};
 		for (int j = 1; j <= SHUFFLE_COUNT; j++) {
 			selectionShuffle(values2);
 			System.out.print("  " + j + ":");
