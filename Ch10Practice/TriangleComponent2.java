@@ -17,12 +17,12 @@ import java.util.ArrayList;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class TriangleComponent extends JComponent
+public class TriangleComponent2 extends JComponent
 {
-    
+    boolean test = true;
     int count;
     ArrayList<Point2D.Double> list;
-    public TriangleComponent()
+    public TriangleComponent2()
     {
         list = new ArrayList<Point2D.Double>();
         count = 0;
@@ -32,12 +32,13 @@ public class TriangleComponent extends JComponent
     {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
+        
         if (count == 2)
         {
             Line2D.Double line = new Line2D.Double(list.get(0), list.get(1));
             g2.draw(line);
         }
-        if (count == 3)
+        if (count > 2)
         {
             Line2D.Double line = new Line2D.Double(list.get(0), list.get(1));
             g2.draw(line);
@@ -53,12 +54,17 @@ public class TriangleComponent extends JComponent
     {
         if (count == 3)
         {
-            list = new ArrayList<Point2D.Double>();
-            count -= 3;
+            test = false;
+            
         }
         Point2D.Double p = new Point2D.Double(x,y);
-        list.add(p);
+        if(test == true)
+        {
+            list.add(p);
+        }
+        list.set(count%3, p);
         count++;
         repaint();
+        
     }
 }
